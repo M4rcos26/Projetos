@@ -1,0 +1,616 @@
+<html><head><base href="."><title>Portf&#xf3;lio - Analista de Dados Jr</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<style>
+:root {
+    --primary: #0078D7;
+    --secondary: #F4F4F4;
+    --text: #333333;
+    --accent: #00C853;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text);
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    position: relative;
+    overflow: hidden;
+}
+
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    animation: float 15s infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+    }
+}
+
+.profile-img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.tools-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tool-card {
+    min-width: 200px;
+    margin-right: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    padding: 15px;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.soft-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.soft-skills-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.soft-skill-group {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.soft-skill-group:hover {
+    transform: translateY(-5px);
+}
+
+.soft-skill-group h4 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+}
+
+.soft-skill-list {
+    list-style: none;
+    padding: 0;
+}
+
+.soft-skill-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.8rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.soft-skill-list li:before {
+    content: "→";
+    color: var(--accent);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.contact {
+    background: var(--primary);
+    color: white;
+}
+
+.social-icon {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+footer {
+    background: var(--text);
+    color: white;
+}
+
+.hero-social-icon {
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero-social-icon:hover {
+    transform: translateY(-5px);
+    color: var(--accent);
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .profile-img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .tool-card {
+        min-width: 150px;
+    }
+    .project-gallery {
+        grid-template-columns: 1fr; 
+    }
+    .soft-skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Marcos Paulo - Analista de Dados Jr</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://exemplo.com/curriculo.pdf">Baixar Curr&#xed;culo</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero d-flex align-items-center" id="sobre">
+    <div id="particles-container" class="particles-container"></div>
+    <div class="container position-relative" style="z-index: 2;">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center">
+                <div class="profile-img-container">
+                    <svg class="profile-img" viewBox="0 0 300 300">
+                        <circle cx="150" cy="150" r="150" fill="#ddd"/>
+                        <circle cx="150" cy="120" r="50" fill="#888"/>
+                        <path d="M150 180 Q 150 280 250 280 L 50 280 Q 150 280 150 180" fill="#888"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="col-md-6 text-white">
+                <h1>Ol&#xe1;, eu sou Marcos Paulo</h1>
+                <p class="lead">Analista de Dados Jr com paix&#xe3;o por transformar dados em insights acion&#xe1;veis.</p>
+                <div class="social-links mt-4">
+                    <a href="https://linkedin.com/in/seu-perfil" class="hero-social-icon me-3">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://instagram.com/seu-perfil" class="hero-social-icon me-3">
+                        <i class="fab fa-instagram fa-2x"></i>
+                    </a>
+                    <a href="https://wa.me/seunumero" class="hero-social-icon">
+                        <i class="fab fa-whatsapp fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="py-5" id="projetos" style="background: var(--secondary);">
+    <div class="container">
+        <h2 class="text-center mb-5">Ferramentas</h2>
+        <div class="tools-container">
+            <div class="tool-card">
+                <svg viewBox="0 0 50 50" width="50" height="50">
+                    <path d="M25 2 L48 13 L48 37 L25 48 L2 37 L2 13 Z" fill="var(--primary)" stroke="none"/>
+                    <text x="25" y="30" text-anchor="middle" fill="white" style="font-size: 12px;">Python</text>
+                </svg>
+                <h5 class="mt-3">Python</h5>
+                <p>An&#xe1;lise de dados, Machine Learning, Automa&#xe7;&#xe3;o</p>
+            </div>
+            
+            <div class="tool-card">
+                <svg viewBox="0 0 50 50" width="50" height="50">
+                    <rect x="5" y="5" width="40" height="40" rx="5" fill="var(--primary)"/>
+                    <text x="25" y="30" text-anchor="middle" fill="white" style="font-size: 12px;">SQL</text>
+                </svg>
+                <h5 class="mt-3">SQL</h5>
+                <p>Consultas complexas, Otimiza&#xe7;&#xe3;o de banco de dados</p>
+            </div>
+            
+            <div class="tool-card">
+                <svg viewBox="0 0 50 50" width="50" height="50">
+                    <circle cx="25" cy="25" r="20" fill="var(--primary)"/>
+                    <text x="25" y="30" text-anchor="middle" fill="white" style="font-size: 12px;">Power BI</text>
+                </svg>
+                <h5 class="mt-3">Power BI</h5>
+                <p>Dashboards interativos, Visualiza&#xe7;&#xe3;o de dados</p>
+            </div>
+        </div>
+
+        <h2 class="text-center mb-5 mt-5">Projetos em Destaque</h2>
+        
+        <!-- Python Projects -->
+        <h3 class="mb-4">Projetos em Python</h3>
+        <div class="project-gallery mb-5">
+            <div class="project-card">
+                <svg class="project-image" viewBox="0 0 400 200">
+                    <rect width="100%" height="100%" fill="#eee"/>
+                    <g transform="translate(50,50)">
+                        <path d="M0,50 C100,0 200,100 300,50" stroke="var(--primary)" fill="none" stroke-width="3"/>
+                        <circle cx="75" cy="45" r="5" fill="var(--accent)"/>
+                        <circle cx="150" cy="65" r="5" fill="var(--accent)"/>
+                        <circle cx="225" cy="35" r="5" fill="var(--accent)"/>
+                    </g>
+                </svg>
+                <div class="p-3">
+                    <h3>An&#xe1;lise Preditiva</h3>
+                    <p>Modelo de machine learning para previs&#xe3;o de vendas.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small>Python, Scikit-learn</small>
+                        <a href="https://exemplo.com/projeto-python-1" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <svg class="project-image" viewBox="0 0 400 200">
+                    <rect width="100%" height="100%" fill="#eee"/>
+                    <g transform="translate(50,30)">
+                        <rect x="0" y="20" width="50" height="100" fill="var(--primary)" opacity="0.7"/>
+                        <rect x="70" y="40" width="50" height="80" fill="var(--primary)" opacity="0.5"/>
+                        <rect x="140" y="60" width="50" height="60" fill="var(--primary)" opacity="0.6"/>
+                        <rect x="210" y="30" width="50" height="90" fill="var(--primary)" opacity="0.8"/>
+                    </g>
+                </svg>
+                <div class="p-3">
+                    <h3>ETL Automatizado</h3>
+                    <p>Pipeline de dados automatizado para processamento de dados.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small>Python, Pandas</small>
+                        <a href="https://exemplo.com/projeto-python-2" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SQL Projects -->
+        <h3 class="mb-4">Projetos em SQL</h3>
+        <div class="project-gallery mb-5">
+            <div class="project-card">
+                <svg class="project-image" viewBox="0 0 400 200">
+                    <rect width="100%" height="100%" fill="#eee"/>
+                    <g transform="translate(50,30)">
+                        <rect width="300" height="30" fill="var(--primary)" opacity="0.7"/>
+                        <rect y="40" width="250" height="30" fill="var(--primary)" opacity="0.5"/>
+                        <rect y="80" width="280" height="30" fill="var(--primary)" opacity="0.6"/>
+                    </g>
+                </svg>
+                <div class="p-3">
+                    <h3>An&#xe1;lise de Vendas com SQL</h3>
+                    <p>Queries complexas para an&#xe1;lise de performance de vendas.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small>SQL Server</small>
+                        <a href="https://exemplo.com/projeto-sql" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <svg class="project-image" viewBox="0 0 400 200">
+                    <rect width="100%" height="100%" fill="#eee"/>
+                    <g transform="translate(50,30)">
+                        <rect y="20" width="280" height="20" fill="var(--primary)" opacity="0.8"/>
+                        <rect y="50" width="200" height="20" fill="var(--primary)" opacity="0.6"/>
+                        <rect y="80" width="250" height="20" fill="var(--primary)" opacity="0.7"/>
+                    </g>
+                </svg>
+                <div class="p-3">
+                    <h3>Otimiza&#xe7;&#xe3;o de Queries</h3>
+                    <p>Projeto de otimiza&#xe7;&#xe3;o de consultas em banco de dados.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small>SQL Server, Performance</small>
+                        <a href="https://exemplo.com/projeto-sql-2" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Excel Projects -->
+        <h3 class="mb-4">Projetos em Excel</h3>
+        <div class="project-gallery mb-5">
+            <div class="project-card">
+                <svg class="project-image" viewBox="0 0 400 200">
+                    <rect width="100%" height="100%" fill="#eee"/>
+                    <path d="M50 150 L150 80 L250 120 L350 50" stroke="var(--accent)" fill="none" stroke-width="3"/>
+                    <path d="M50 100 L150 130 L250 70 L350 100" stroke="var(--primary)" fill="none" stroke-width="3"/>
+                </svg>
+                <div class="p-3">
+                    <h3>Dashboard Financeiro</h3>
+                    <p>Dashboard com an&#xe1;lise financeira completa usando Excel avan&#xe7;ado.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small>Excel, VBA</small>
+                        <a href="https://exemplo.com/projeto-excel" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <svg class="project-image" viewBox="0 0 400 200">
+                    <rect width="100%" height="100%" fill="#eee"/>
+                    <g transform="translate(50,50)">
+                        <rect width="60" height="80" fill="var(--primary)" opacity="0.7"/>
+                        <rect x="80" width="60" height="60" fill="var(--primary)" opacity="0.5"/>
+                        <rect x="160" width="60" height="100" fill="var(--primary)" opacity="0.6"/>
+                    </g>
+                </svg>
+                <div class="p-3">
+                    <h3>An&#xe1;lise de Custos</h3>
+                    <p>Planilha automatizada para controle de custos.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small>Excel, Macros</small>
+                        <a href="https://exemplo.com/projeto-excel-2" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Power BI Projects -->
+        <h3 class="mb-4">Projetos em Power BI</h3>
+        <div class="project-gallery">
+            <div class="project-card">
+                <svg class="project-image" viewBox="0 0 400 200">
+                    <rect width="100%" height="100%" fill="#eee"/>
+                    <circle cx="200" cy="100" r="60" fill="var(--primary)" opacity="0.7"/>
+                    <circle cx="150" cy="80" r="40" fill="var(--accent)" opacity="0.5"/>
+                    <circle cx="250" cy="120" r="30" fill="var(--primary)" opacity="0.3"/>
+                </svg>
+                <div class="p-3">
+                    <h3>Dashboard de KPIs</h3>
+                    <p>Painel interativo com principais indicadores de performance.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small>Power BI</small>
+                        <a href="https://exemplo.com/projeto-powerbi" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <svg class="project-image" viewBox="0 0 400 200">
+                    <rect width="100%" height="100%" fill="#eee"/>
+                    <g transform="translate(100,50)">
+                        <rect width="200" height="100" fill="var(--primary)" opacity="0.3"/>
+                        <circle cx="100" cy="50" r="40" fill="var(--accent)" opacity="0.5"/>
+                    </g>
+                </svg>
+                <div class="p-3">
+                    <h3>Dashboard de Vendas</h3>
+                    <p>An&#xe1;lise detalhada de performance de vendas.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small>Power BI, DAX</small>
+                        <a href="https://exemplo.com/projeto-powerbi-2" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="py-5" id="habilidades">
+    <div class="container">
+        <h2 class="text-center mb-5">Habilidades Interpessoais</h2>
+        <div class="soft-skills-grid">
+            <!-- Raciocínio Lógico -->
+            <div class="soft-skill-group">
+                <div class="text-center">
+                    <i class="fas fa-brain skill-icon"></i>
+                    <h4>Racioc&#xed;nio L&#xf3;gico e Anal&#xed;tico</h4>
+                </div>
+                <ul class="soft-skill-list">
+                    <li>Capacidade de interpretar dados e identificar padr&#xf5;es ou insights</li>
+                    <li>Racioc&#xed;nio cr&#xed;tico para resolver problemas de neg&#xf3;cios com base em dados</li>
+                </ul>
+            </div>
+
+            <!-- Comunicação -->
+            <div class="soft-skill-group">
+                <div class="text-center">
+                    <i class="fas fa-comments skill-icon"></i>
+                    <h4>Comunica&#xe7;&#xe3;o</h4>
+                </div>
+                <ul class="soft-skill-list">
+                    <li>Habilidade para apresentar insights de forma clara e objetiva para equipes t&#xe9;cnicas e n&#xe3;o t&#xe9;cnicas</li>
+                    <li>Capacidade de criar relat&#xf3;rios e apresenta&#xe7;&#xf5;es com base em dados</li>
+                </ul>
+            </div>
+
+            <!-- Organização -->
+            <div class="soft-skill-group">
+                <div class="text-center">
+                    <i class="fas fa-tasks skill-icon"></i>
+                    <h4>Organiza&#xe7;&#xe3;o e Aten&#xe7;&#xe3;o aos Detalhes</h4>
+                </div>
+                <ul class="soft-skill-list">
+                    <li>Precis&#xe3;o ao tratar e manipular grandes volumes de dados</li>
+                    <li>Organiza&#xe7;&#xe3;o para manter arquivos e scripts bem documentados</li>
+                </ul>
+            </div>
+
+            <!-- Colaboração -->
+            <div class="soft-skill-group">
+                <div class="text-center">
+                    <i class="fas fa-users skill-icon"></i>
+                    <h4>Colabora&#xe7;&#xe3;o e Desenvolvimento</h4>
+                </div>
+                <ul class="soft-skill-list">
+                    <li>Trabalho em equipe, especialmente com times multidisciplinares</li>
+                    <li>Prontid&#xe3;o para receber feedback e aprender com colegas mais experientes</li>
+                    <li>Vontade de aprender e aprofundar habilidades t&#xe9;cnicas</li>
+                    <li>Capacidade de adapta&#xe7;&#xe3;o com diferentes ferramentas e desafios</li>
+                    <li>Curiosidade por dados e entusiasmo em explorar padr&#xf5;es</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact py-5" id="contato">
+    <div class="container">
+        <h2 class="text-center mb-5">Contato</h2>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Nome">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Assunto">
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="5" placeholder="Mensagem"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-light w-100">Enviar</button>
+                </form>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="https://linkedin.com/in/seu-perfil" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://instagram.com/seu-perfil" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/seunumero" class="social-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-4 text-center">
+    <div class="container">
+        <p>&#xa9; 2024 Marcos Paulo - Analista de Dados Jr</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>function createParticles() {
+  const container = document.getElementById('particles-container');
+  for (let i = 0; i < 50; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    particle.style.width = Math.random() * 5 + 'px';
+    particle.style.height = particle.style.width;
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 15 + 's';
+    container.appendChild(particle);
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  createParticles();
+});</script>
+
+</body></html>
